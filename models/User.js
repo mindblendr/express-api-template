@@ -20,7 +20,10 @@ const schema = mongoose.Schema({
 		type: Number,
 		default: 1
 	}
-}, { timestamps: true });
+}, { 
+	timestamps: true,
+	collection: 'user'
+ });
 
 schema.plugin(mongoosePaginate);
 

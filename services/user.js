@@ -44,7 +44,7 @@ router.put('/:id', [auth_admin], async (req, res) => {
     return res.status(401).send({ status: 0 });
 });
 
-router.post('/create', async (req, res) => {
+router.post('/create', [auth_admin], async (req, res) => {
     try {
         let { username, password, firstname, lastname, type } = req.body;
         password = bcrypt.hashSync(password, bcrypt.genSaltSync(12));

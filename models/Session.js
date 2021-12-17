@@ -7,7 +7,13 @@ const schema = mongoose.Schema({
 	status: String,
 	type: String,
 	token: String,
-	createdAt: {type: Date, expires: parseInt(process.env.SESSION_EXP), default: Date.now}
+	createdAt: {
+		type: Date,
+		expires: parseInt(process.env.SESSION_EXP),
+		default: Date.now
+	}
+}, {
+	collection: 'session'
 });
 
 schema.plugin(mongoosePaginate);
